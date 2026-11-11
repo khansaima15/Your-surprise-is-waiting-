@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Just for You ❤️</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#160407;overflow:hidden}
+#book{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+.page{position:absolute;inset:0;display:none;align-items:center;justify-content:center}
+.page.active{display:flex}
+.page img{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain}
+.tap{position:absolute;inset:0;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#fff9;font:13px Arial,sans-serif;pointer-events:none;text-shadow:0 1px 4px #000}
+</style>
+</head>
+<body>
+<main id="book" aria-label="Birthday surprise">
+  <section class="page active"><img src="https://i.ibb.co/m5cFcCvt/826a63e7-d243-8b28-dd0a-4ec1a4305852.jpg" alt="Page 1"><button class="tap" aria-label="Open next page"></button></section>
+  <section class="page"><img src="https://i.ibb.co/XrYKhF3T/33f2282e-46c1-7037-81e1-c72110d8454e.jpg" alt="Page 2"><button class="tap" aria-label="Open next page"></button></section>
+  <section class="page"><img src="https://i.ibb.co/C50gzqCH/949aca84-110e-0670-4e89-1bf5748bcad9.jpg" alt="Page 3"><button class="tap" aria-label="Open memories page"></button></section>
+  <section class="page"><img src="https://i.ibb.co/QFKdfLFQ/BFD374-AF-C0-B6-4-FE0-AF21-AE3889-B62-D87.png" alt="Page 4"><button class="tap" aria-label="Open next page"></button></section>
+  <section class="page"><img src="https://i.ibb.co/rGPtcZXT/9-E1-C0-C61-EC09-4-B4-B-B774-4353070-F2508.png" alt="Page 5"><button class="tap" aria-label="Open next page"></button></section>
+  <section class="page"><img src="https://i.ibb.co/pj5fTYMq/68a79cb9-a7b6-5869-8e77-976d171554af.jpg" alt="Page 6"><button class="tap" aria-label="Open next page"></button></section>
+  <section class="page"><img src="https://i.ibb.co/MyF2TRhW/64c45859-dcaa-d119-b881-4660b343c4e4.jpg" alt="Page 7"><button class="tap" aria-label="Open next page"></button></section>
+  <section class="page"><img src="https://i.ibb.co/GvPWJWHw/c52bec31-e6b6-a2d4-c184-77e5354dbdbd.jpg" alt="Page 8"><button class="tap" aria-label="Replay from beginning"></button></section>
+  
+</main>
+<script>
+const pages = Array.from(document.querySelectorAll('.page'));
+let current = 0;
+pages.forEach((page, index) => {
+  page.querySelector('.tap').addEventListener('click', () => {
+    pages[current].classList.remove('active');
+    current = (current + 1) % pages.length;
+    pages[current].classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
